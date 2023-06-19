@@ -6,7 +6,7 @@ function renderProducto() {
 <div class="col-md-4">
 <h2>${producto.nombre}</h2> 
     <p class="text-primary"><b>${producto.precio}</b></p>
-    <p><button class="btn btn-primary");">Agregar al Carrito</button></p>
+    <p class="my-5"><button class="btn btn-primary" onClick="agregarProducto(${producto.id});">Agregar al Carrito</button></p>
 </div>`;
     document.getElementById("contenido").innerHTML = contenido;
 }

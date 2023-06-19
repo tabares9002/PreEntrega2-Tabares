@@ -16,7 +16,30 @@ function cargarProductos() {
     return JSON.parse(localStorage.getItem("productos"));
 }
 
+function guardarCarrito(carrito) {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function cargarCarrito() {
+    return JSON.parse(localStorage.getItem("carrito")) || [];
+}
+
 guardarProductos();
+
+function agregarProducto(id) {
+    const carrito = cargarCarrito();
+    const producto = buscarProducto(id)
+    carrito.push(producto);
+    guardarCarrito(carrito);
+    console.log("Agregado");
+}
+
+function buscarProducto(id){
+    const productos = cargarProductos();
+
+    return productos.find(item => item.id === id);
+}
+
 
 function renderProductos() {
     let productos = cargarProductos();
