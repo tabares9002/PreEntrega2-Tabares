@@ -24,8 +24,6 @@ function cargarCarrito() {
     return JSON.parse(localStorage.getItem("carrito")) || [];
 }
 
-guardarProductos();
-
 function agregarProducto(id) {
     const carrito = cargarCarrito();
     const producto = buscarProducto(id)
@@ -36,10 +34,15 @@ function agregarProducto(id) {
 
 function buscarProducto(id){
     const productos = cargarProductos();
-
     return productos.find(item => item.id === id);
 }
 
+function verProducto(id) {
+    let productos = cargarProductos();
+    let producto = productos.find(item => item.id == id);
+    localStorage.setItem("producto", JSON.stringify(producto));
+    location.href = "detalle-producto.html";
+}
 
 function renderProductos() {
     let productos = cargarProductos();
@@ -66,18 +69,11 @@ function renderProductos() {
         No se encontró el producto
         </div>`
     }
-        
     
     document.getElementById("contenido").innerHTML = contenido;
 };
 
 
-function verProducto(id) {
-    let productos = cargarProductos();
-    let producto = productos.find(item => item.id == id);
-    localStorage.setItem("producto", JSON.stringify(producto));
-    location.href = "detalle-producto.html";
-}
-
+guardarProductos();
 renderProductos();
 
