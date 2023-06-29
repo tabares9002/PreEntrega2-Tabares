@@ -12,3 +12,4 @@ function renderProducto() {
 }
 
 renderProducto()
+numeroBotonCarrito();

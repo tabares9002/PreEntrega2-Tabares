@@ -31,7 +31,7 @@ function agregarProducto(id) {
     const producto = buscarProducto(id)
     carrito.push(producto);
     guardarCarrito(carrito);
-    console.log("Agregado");
+    numeroBotonCarrito();
 }
 
 function buscarProducto(id){
@@ -43,24 +43,34 @@ function buscarProducto(id){
 
 function renderProductos() {
     let productos = cargarProductos();
+    let textoBusqueda = document.getElementById("busqueda").value;
     let contenido = "";
 
+    productos = textoBusqueda ? productos.filter(item => item.nombre.toUpperCase().includes(textoBusqueda.toUpperCase())) : productos;
 
-    productos.forEach(producto => {
-        contenido += `<div class="col-md-3 mb-5">
-        <div class="card text-center border border-0 text-dark">
-        <img src = "${producto.imagen}" class="card-img-top" alt = "${producto.nombre}">
-            <div class="card-body">
-            <p class="card-text text-primary"><b>${producto.precio}</b></p>
-            <h4>${producto.nombre}</h4> 
-            <p><button class="btn btn-primary" onClick="verProducto(${producto.id});">Ver Producto</button></p>
-            </div>
-    </div>
-</div>`
-    });
-
+    if (productos.length > 0) {
+        productos.forEach(producto => {
+            contenido += `<div class="col-md-3 mb-5">
+            <div class="card text-center border border-0 text-dark">
+            <img src = "${producto.imagen}" class="card-img-top" alt = "${producto.nombre}">
+                <div class="card-body">
+                <p class="card-text text-primary"><b>${producto.precio}</b></p>
+                <h4>${producto.nombre}</h4> 
+                <p><button class="btn btn-primary" onClick="verProducto(${producto.id});">Ver Producto</button></p>
+                </div>
+        </div>
+    </div>`;
+        });
+    } else {
+        contenido += `<div class="alert alert-danger" role="alert">
+        No se encontró el producto
+        </div>`
+    }
+        
+    
     document.getElementById("contenido").innerHTML = contenido;
 };
+
 
 function verProducto(id) {
     let productos = cargarProductos();
