@@ -18,5 +18,13 @@
     {
         "nombre" : "Gabinete",
         "cantidad" : "60"
+    },
+    {
+        "nombre" : "Motherboard",
+        "cantidad" : "30"
+    },
+    {
+        "nombre" : "Fan RGB",
+        "cantidad" : "80"
     }
     ]
