@@ -1,0 +1,22 @@
+[
+    {
+        "nombre" : "Monitor",
+        "cantidad" : "10"
+    },
+    {
+        "nombre" : "Parlantes",
+        "cantidad" : "35"
+    },
+    {
+        "nombre" : "Mouse",
+        "cantidad" : "15"
+    },
+    {
+        "nombre" : "Teclado",
+        "cantidad" : "40"
+    },
+    {
+        "nombre" : "Gabinete",
+        "cantidad" : "60"
+    }
+    ]

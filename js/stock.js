@@ -73,6 +73,25 @@ function renderProductos() {
     document.getElementById("contenido").innerHTML = contenido;
 };
 
+//Ver Stock Disponible
+function stockDisponible() {
+    fetch('stock.json')
+        .then(function(res) {
+            return res.json();
+    })
+        .then(function(data){
+            let html = '';
+            data.forEach(function(empleado) {
+                html += `
+                <li>${empleado.nombre} ${empleado.cantidad}</li>
+                `;
+        })
+            document.getElementById('resultado').innerHTML = html;
+            
+    })
+
+} 
+document.getElementById('Stock').addEventListener('click', stockDisponible);
 
 guardarProductos();
 renderProductos();
