@@ -1,4 +1,19 @@
-.contenido{
-    object-fit: cover;
-    background-color: aqua;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-height {
+    height: 100%;
+    margin-top: 25px;
+}
+
+#Menu-Nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 100px;
 }

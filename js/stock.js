@@ -5,7 +5,7 @@ const productos = [
     { id: 4, nombre: "Parlantes", imagen: "https://http2.mlstatic.com/D_NQ_NP_964150-MLA47543087029_092021-V.webp", precio: 10 },
     { id: 5, nombre: "Gabinete", imagen: "https://http2.mlstatic.com/D_NQ_NP_925599-MLU53478888593_012023-V.webp", precio: 120 },
     { id: 6, nombre: "Motherboard", imagen: "https://http2.mlstatic.com/D_NQ_NP_801880-MLA47163907374_082021-V.webp", precio: 120 },
-    { id: 6, nombre: "Fan RGB", imagen: "https://http2.mlstatic.com/D_NQ_NP_662635-MLU69116237294_042023-V.webp", precio: 120 }
+    { id: 7, nombre: "Fan RGB", imagen: "https://http2.mlstatic.com/D_NQ_NP_662635-MLU69116237294_042023-V.webp", precio: 120 }
 ]
 
 function guardarProductos() {
@@ -54,7 +54,7 @@ function renderProductos() {
     if (productos.length > 0) {
         productos.forEach(producto => {
             contenido += `<div class="col-md-3 mb-5">
-            <div class="card text-center border border-0 text-dark">
+            <div class="card text-center border border-0 text-dark card-height">
             <img src = "${producto.imagen}" class="card-img-top" alt = "${producto.nombre}">
                 <div class="card-body">
                 <p class="card-text text-primary"><b>${producto.precio}</b></p>
@@ -76,4 +76,3 @@ function renderProductos() {
 
 guardarProductos();
 renderProductos();
-
